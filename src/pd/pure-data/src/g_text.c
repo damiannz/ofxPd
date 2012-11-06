@@ -170,6 +170,8 @@ static void canvas_howputnew(t_canvas *x, int *connectp, int *xpixp, int *ypixp,
     else
     {
         glist_getnextxy(x, xpixp, ypixp);
+        *xpixp -= 3;
+        *ypixp -= 3;
         glist_noselect(x);
     }
     *connectp = connectme;
@@ -1066,7 +1068,7 @@ static void text_activate(t_gobj *z, t_glist *glist, int state)
 static void text_delete(t_gobj *z, t_glist *glist)
 {
     t_text *x = (t_text *)z;
-    canvas_deletelinesfor(glist, x);
+        canvas_deletelinesfor(glist, x);
 }
 
 static void text_vis(t_gobj *z, t_glist *glist, int vis)
